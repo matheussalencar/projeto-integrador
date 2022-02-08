@@ -34,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/productannouncements").permitAll()
+                .antMatchers("/register").permitAll()
                 .antMatchers(HttpMethod.POST, "/auth").permitAll()
                 .antMatchers(HttpMethod.POST, "/inboundorder").hasAnyAuthority("AGENT")
                 .antMatchers(HttpMethod.GET, "/products").hasAnyAuthority("AGENT")

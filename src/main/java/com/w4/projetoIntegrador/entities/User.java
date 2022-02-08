@@ -29,8 +29,13 @@ public class User {
     @Id
     @Column(length = 20)
     private String username;
+
+    @Column
+    private String email;
+
     @Column
     private String password;
+    
     @Column
     private boolean enabled;
 
