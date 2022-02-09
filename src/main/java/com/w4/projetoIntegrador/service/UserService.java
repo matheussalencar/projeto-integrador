@@ -7,6 +7,7 @@ import com.w4.projetoIntegrador.dtos.UserDto;
 import com.w4.projetoIntegrador.entities.User;
 import com.w4.projetoIntegrador.exceptions.BusinessException;
 import com.w4.projetoIntegrador.repository.UserRepository;
+import com.w4.projetoIntegrador.repository.UserRepository.EmailUsers;
 
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,14 +29,12 @@ public class UserService {
 
     public UserDto createUser(User user) {
         User userAlreadyExists = userRepository.findByEmail(user.getEmail());
-        System.out.println(userAlreadyExists);
         if (userAlreadyExists == null) {
             String senhaCriptografada = criptografar.encode(user.getPassword());
             user.setPassword(senhaCriptografada);
+            UserDto userDto = UserDto.converteToUserDto(user);
             mailerService.sendMail(user);
             userRepository.save(user);
-            UserDto userDto = UserDto.converte(user);
-
             return userDto;
         } else {
             throw new BusinessException("Email já cadastrado na base de dados");
@@ -49,10 +48,9 @@ public class UserService {
         return userDtoList;
     }
  
-    public UserDto getUserByEmail(String email) {
-        User user = userRepository.findByEmail(email);
-        UserDto userDto = UserDto.converte(user);
-        return userDto;
+    public EmailUsers getUserByEmail(String mail) {
+       UserRepository.EmailUsers listUsers = userRepository.findUserByEmailQuery(mail);
+        return listUsers;
     }
 
 }

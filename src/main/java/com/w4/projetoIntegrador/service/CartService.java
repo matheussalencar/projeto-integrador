@@ -74,7 +74,7 @@ public class CartService {
         Cart cart = cartRepository.findById(id).orElse(null);
         cart.setBuyer(buyerService.getBuyer(cartDto.getBuyerId()));
         cart.setDate(cartDto.getDate());
-        cart.setStatusCode(cart.getStatusCode());
+        cart.setStatusCode(cartDto.getStatusCode());
 
         List<ItemCart> itemCarts = new ArrayList<>();
 

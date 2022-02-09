@@ -7,6 +7,7 @@ import com.w4.projetoIntegrador.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +25,9 @@ public class AuthenticationController {
 
     @PostMapping
     public ResponseEntity<String> authenticate(@RequestBody LoginRequestDto loginRequest) {
+        BCryptPasswordEncoder criptografar = new BCryptPasswordEncoder();
         User user = userRepository.findById(loginRequest.getUsername()).orElse(null);
-        if (user != null && user.getPassword().equals(loginRequest.getPassword())) {
+        if (user != null && criptografar.matches(loginRequest.getPassword(), user.getPassword())) {
             String token = tokenService.createToken(user);
             return ResponseEntity.ok(token);
         }

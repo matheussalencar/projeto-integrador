@@ -7,8 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Builder
 @Data
@@ -30,23 +29,22 @@ public class User {
 
     @Id
     @Column(length = 20)
-    @NotBlank
+    @NotNull
     private String username;
 
     @Column
-    @NotBlank
-    @Email
+    @NotNull
     private String email;
 
     @Column
-    @NotBlank
+    @NotNull
     private String password;
     
     @Column
-    @NotBlank
+    @NotNull
     private boolean enabled;
 
     @Enumerated(EnumType.STRING)
-    @NotBlank
+    @NotNull
     private ProfileTypes profileType;
 }
