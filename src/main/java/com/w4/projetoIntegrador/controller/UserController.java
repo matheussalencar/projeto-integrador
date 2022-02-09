@@ -2,6 +2,8 @@ package com.w4.projetoIntegrador.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.w4.projetoIntegrador.dtos.UserDto;
 import com.w4.projetoIntegrador.entities.User;
 import com.w4.projetoIntegrador.service.UserService;
@@ -23,7 +25,7 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<UserDto> createAccount(@RequestBody User user) {
+    public ResponseEntity<UserDto> createAccount(@RequestBody @Valid User user) {
         return ResponseEntity.status(201).body(userService.createUser(user));
     }
 
