@@ -28,16 +28,6 @@ Implemented
    - Buscar um usuario pelo email
 
  
- Todo list
-
-
-### Revisão final
-- Refatorar Classes separando Entities de DTOs
-- (Testes)
-- (Documentação )
-- (Readme.md)
-- (Incluir o modelo)
-
 Modelo de SQL
 
 //drop database if exists integrator_project;
