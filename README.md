@@ -21,6 +21,12 @@ Implemented
    - Consultar a validade por lote.
    - Get verificando validade
    - Get verificando categoria e dias a vencer de um produto.
+
+   ### US6
+   - Se cadastrar na plataforma
+   - Consultar todos os usuarios cadastrados
+   - Buscar um usuario pelo email
+
  
  Todo list
 
