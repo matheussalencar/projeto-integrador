@@ -1,6 +1,5 @@
 package com.w4.projetoIntegrador.service;
 
-import com.w4.projetoIntegrador.entities.Mail;
 import com.w4.projetoIntegrador.entities.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,13 @@ public class MailerService {
         simpleMailMessage.setFrom("noreplybootcampw4@gmail.com");
         simpleMailMessage.setTo(user.getEmail());
         simpleMailMessage.setSubject("Bem vindo ao sistema do grupo 11");
-        simpleMailMessage.setText("Estamos muito felizes com a sua chegada, " + user.getUsername() + "\nVoce acabou de registrar com o email: " + user.getEmail());;
+        simpleMailMessage.setText("Estamos muito felizes com a sua chegada, " 
+        + user.getUsername() + "\nVoce acabou de registrar com o email: " 
+        + user.getEmail() 
+        + "\nSe nao foi voce, por favor desconsidere a mensagem");
+
 
         javaMailSender.send(simpleMailMessage);
+
     }
 }

@@ -4,13 +4,15 @@ import com.w4.projetoIntegrador.entities.User;
 import com.w4.projetoIntegrador.enums.ProfileTypes;
 import com.w4.projetoIntegrador.service.MailerService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+
 import org.mockito.Mockito;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
 import java.util.Arrays;
 import java.util.Optional;
+
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,7 +27,7 @@ public class MailTest {
             .profileType(ProfileTypes.AGENT).build();
 
     @Test
-    public void deveSerPossivelEnviarUmEmail() {
+    public void deveSerPossivelEnviarUmEmail(){
 
         JavaMailSender javaMailSender = Mockito.mock(JavaMailSender.class);
         MailerService mailerService = Mockito.mock(MailerService.class);

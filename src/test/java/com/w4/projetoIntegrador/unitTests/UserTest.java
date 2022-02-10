@@ -14,7 +14,6 @@ import com.w4.projetoIntegrador.service.MailerService;
 import com.w4.projetoIntegrador.service.UserService;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 public class UserTest {

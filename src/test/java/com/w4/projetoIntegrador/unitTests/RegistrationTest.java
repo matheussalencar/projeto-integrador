@@ -2,6 +2,8 @@ package com.w4.projetoIntegrador.unitTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
+
 import com.w4.projetoIntegrador.dtos.UserDto;
 import com.w4.projetoIntegrador.entities.User;
 import com.w4.projetoIntegrador.enums.ProfileTypes;
@@ -10,7 +12,6 @@ import com.w4.projetoIntegrador.service.MailerService;
 import com.w4.projetoIntegrador.service.UserService;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 public class RegistrationTest {

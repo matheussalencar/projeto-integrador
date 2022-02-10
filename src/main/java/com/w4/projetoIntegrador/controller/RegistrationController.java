@@ -1,5 +1,6 @@
 package com.w4.projetoIntegrador.controller;
 
+
 import javax.validation.Valid;
 
 import com.w4.projetoIntegrador.dtos.UserDto;
@@ -21,7 +22,7 @@ public class RegistrationController {
     UserService userService;
 
     @PostMapping()
-    public ResponseEntity<UserDto> createAccount(@RequestBody @Valid User user) {
+    public ResponseEntity<UserDto> createAccount(@RequestBody @Valid User user)  {
         return ResponseEntity.status(201).body(userService.createUser(user));
     }
 }
