@@ -1,6 +1,9 @@
 package com.w4.projetoIntegrador.entities;
 
 import com.w4.projetoIntegrador.enums.ProfileTypes;
+
+import org.hibernate.validator.constraints.Email;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,6 +37,7 @@ public class User {
 
     @Column
     @NotNull
+    @Email
     private String email;
 
     @Column
